@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Exchange Rate API</title>
-  </head>
   <body>
     <h1>Exchange Rate API</h1>
     <p>This project implements an API that retrieves exchange rate data from various providers and stores it in a local database. It provides two methods for retrieving exchange rate data:</p>
