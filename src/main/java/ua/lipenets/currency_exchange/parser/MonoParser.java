@@ -1,4 +1,4 @@
-package ua.lipenets.currency_exchange_daemon.parser;
+package ua.lipenets.currency_exchange.parser;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -6,15 +6,15 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import org.springframework.stereotype.Component;
-import ua.lipenets.currency_exchange_daemon.model.MonoExchangeRate;
-import ua.lipenets.currency_exchange_daemon.model.dto.MonoExchangeRateDto;
+import ua.lipenets.currency_exchange.model.ExchangeRate;
+import ua.lipenets.currency_exchange.model.dto.MonoExchangeRateDto;
 
 @Component
-public class MonoParser implements AbstractParser<MonoExchangeRateDto, MonoExchangeRate> {
+public class MonoParser implements AbstractParser<MonoExchangeRateDto, ExchangeRate> {
 
     @Override
-    public MonoExchangeRate toModel(MonoExchangeRateDto dto) {
-        MonoExchangeRate monoExchangeRate = new MonoExchangeRate();
+    public ExchangeRate toModel(MonoExchangeRateDto dto) {
+        ExchangeRate monoExchangeRate = new ExchangeRate();
         monoExchangeRate.setCurrencyFrom(dto.getCurrencyFrom().equals("840")
                 ? "USD" : "EUR");
         monoExchangeRate.setCurrencyTo(dto.getCurrencyTo().equals("980")

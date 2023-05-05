@@ -1,4 +1,4 @@
-package ua.lipenets.currency_exchange_daemon;
+package ua.lipenets.currency_exchange;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

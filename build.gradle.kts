@@ -1,6 +1,6 @@
 plugins {
     java
-    id("org.springframework.boot") version "3.0.6"
+    id("org.springframework.boot") version "2.5.6"
     id("io.spring.dependency-management") version "1.1.0"
 }
 
@@ -25,6 +25,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-quartz")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation ("com.mashape.unirest:unirest-java:1.4.9")
+    implementation("io.springfox:springfox-boot-starter:3.0.0")
     implementation ("com.google.code.gson:gson:2.10.1")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("org.postgresql:postgresql")
