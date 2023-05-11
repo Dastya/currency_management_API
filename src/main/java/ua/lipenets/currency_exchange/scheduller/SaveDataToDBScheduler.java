@@ -13,7 +13,7 @@ import ua.lipenets.currency_exchange.service.GetDataFromApiService;
 
 @Component
 @RequiredArgsConstructor
-public class SaveDataToDBSchedulerMono {
+public class SaveDataToDBScheduler {
     @Value("${mono.url}")
     private String MONO_LINK;
 
