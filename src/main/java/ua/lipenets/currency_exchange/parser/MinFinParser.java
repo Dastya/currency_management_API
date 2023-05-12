@@ -5,14 +5,14 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.springframework.stereotype.Component;
 import ua.lipenets.currency_exchange.model.ExchangeRate;
-import ua.lipenets.currency_exchange.model.dto.MinFinExchangeRateDTO;
+import ua.lipenets.currency_exchange.model.dto.MinFinExchangeRateDto;
 
 @Component
-public class MinFinParser implements AbstractParser<MinFinExchangeRateDTO, ExchangeRate> {
+public class MinFinParser implements AbstractParser<MinFinExchangeRateDto, ExchangeRate> {
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @Override
-    public ExchangeRate toModel(MinFinExchangeRateDTO dto) {
+    public ExchangeRate toModel(MinFinExchangeRateDto dto) {
         ExchangeRate rate = new ExchangeRate();
         rate.setCurrencyFrom(dto.getCurrency().toUpperCase());
         rate.setCurrencyTo("UAH");

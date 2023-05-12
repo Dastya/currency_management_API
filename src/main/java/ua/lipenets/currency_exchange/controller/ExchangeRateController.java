@@ -1,9 +1,8 @@
 package ua.lipenets.currency_exchange.controller;
 
-import java.time.LocalDate;
-import java.util.List;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

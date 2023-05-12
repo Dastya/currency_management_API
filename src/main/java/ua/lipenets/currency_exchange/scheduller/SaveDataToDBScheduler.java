@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import ua.lipenets.currency_exchange.model.ExchangeRate;
-import ua.lipenets.currency_exchange.model.dto.MinFinExchangeRateDTO;
+import ua.lipenets.currency_exchange.model.dto.MinFinExchangeRateDto;
 import ua.lipenets.currency_exchange.model.dto.MonoExchangeRateDto;
-import ua.lipenets.currency_exchange.model.dto.PrivatBankExchangeRateDTO;
+import ua.lipenets.currency_exchange.model.dto.PrivatBankExchangeRateDto;
 import ua.lipenets.currency_exchange.parser.AbstractParser;
 import ua.lipenets.currency_exchange.service.GetDataFromApiService;
 
@@ -35,29 +35,29 @@ public class SaveDataToDBScheduler {
     private final GetDataFromApiService<MonoExchangeRateDto>
             monoExchangeRateDtoGetDataFromApiService;
 
-    private final GetDataFromApiService<PrivatBankExchangeRateDTO>
+    private final GetDataFromApiService<PrivatBankExchangeRateDto>
             privatBankExchangeRateDTOGetDataFromApiService;
 
-    private final GetDataFromApiService<MinFinExchangeRateDTO>
+    private final GetDataFromApiService<MinFinExchangeRateDto>
             minFinExchangeRateDTOGetDataFromApiService;
 
-    private final AbstractParser<PrivatBankExchangeRateDTO, ExchangeRate> privatParser;
+    private final AbstractParser<PrivatBankExchangeRateDto, ExchangeRate> privatParser;
 
     private final AbstractParser<MonoExchangeRateDto, ExchangeRate> monoParser;
 
-    private final AbstractParser<MinFinExchangeRateDTO, ExchangeRate> minFinParser;
-
+    private final AbstractParser<MinFinExchangeRateDto, ExchangeRate> minFinParser;
 
     @Scheduled(cron = "0 */3 * ? * *")
     public void job() {
         MonoExchangeRateDto[] monoList = monoExchangeRateDtoGetDataFromApiService
                 .getData(MONO_LINK, MonoExchangeRateDto[].class);
         monoExchangeRateDtoGetDataFromApiService.saveData(monoList, MONO_NAME, monoParser);
-        PrivatBankExchangeRateDTO[] privatList = privatBankExchangeRateDTOGetDataFromApiService
-                .getData(PRIVAT_LINK, PrivatBankExchangeRateDTO[].class);
-        privatBankExchangeRateDTOGetDataFromApiService.saveData(privatList, PRIVAT_NAME, privatParser);
-        MinFinExchangeRateDTO[] minFinList = minFinExchangeRateDTOGetDataFromApiService
-                .getData(MINFIN_LINK, MinFinExchangeRateDTO[].class);
+        PrivatBankExchangeRateDto[] privatList = privatBankExchangeRateDTOGetDataFromApiService
+                .getData(PRIVAT_LINK, PrivatBankExchangeRateDto[].class);
+        privatBankExchangeRateDTOGetDataFromApiService
+                .saveData(privatList, PRIVAT_NAME, privatParser);
+        MinFinExchangeRateDto[] minFinList = minFinExchangeRateDTOGetDataFromApiService
+                .getData(MINFIN_LINK, MinFinExchangeRateDto[].class);
         minFinExchangeRateDTOGetDataFromApiService.saveData(minFinList, MINFIN_NAME, minFinParser);
     }
 }

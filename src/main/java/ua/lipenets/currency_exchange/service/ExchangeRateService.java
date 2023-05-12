@@ -16,7 +16,6 @@ public interface ExchangeRateService<M> {
 
     List<M> getAllByDateBetweenAndCurrencyFrom(LocalDate from, LocalDate to, String currencyFrom);
 
-
     List<M> findAllByCurrencyFrom(String currencyBy);
 
     M findFirstByCurrencyDesc(String currencyFrom, String source);

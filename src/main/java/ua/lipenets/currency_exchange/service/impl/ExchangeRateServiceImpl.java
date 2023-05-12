@@ -49,10 +49,10 @@ public class ExchangeRateServiceImpl implements ExchangeRateService<ExchangeRate
     }
 
     @Override
-    public List<ExchangeRate> getAllByDateBetweenAndCurrencyFrom(LocalDate from, LocalDate to, String currencyFrom) {
+    public List<ExchangeRate> getAllByDateBetweenAndCurrencyFrom(LocalDate from, LocalDate to,
+                                                                 String currencyFrom) {
         return repository.getAllByDateBetweenAndCurrencyFrom(from, to, currencyFrom);
     }
-
 
     @Override
     public List<ExchangeRate> findAllByCurrencyFrom(String currencyBy) {

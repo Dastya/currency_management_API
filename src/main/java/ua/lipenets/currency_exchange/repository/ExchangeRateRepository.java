@@ -16,6 +16,7 @@ public interface ExchangeRateRepository extends JpaRepository<ExchangeRate, Long
 
     ExchangeRate findFirstByCurrencyFromAndSourceOrderByIdDesc(String currencyFrom, String source);
 
-    List<ExchangeRate> getAllByDateBetweenAndCurrencyFrom(LocalDate from, LocalDate to, String currencyFrom);
+    List<ExchangeRate> getAllByDateBetweenAndCurrencyFrom(LocalDate from, LocalDate to,
+                                                          String currencyFrom);
 
 }

@@ -1,12 +1,12 @@
 package ua.lipenets.currency_exchange.service;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import ua.lipenets.currency_exchange.model.ExchangeRate;
@@ -39,7 +39,7 @@ public class GetDataFromApiService<D> {
         exchangeRateUSD.setSource(sourceName);
         ExchangeRate exchangeRateEUR = parser.toModel(dtoList[1]);
         exchangeRateEUR.setSource(sourceName);
-            service.save(exchangeRateUSD);
-            service.save(exchangeRateEUR);
+        service.save(exchangeRateUSD);
+        service.save(exchangeRateEUR);
     }
 }

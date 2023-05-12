@@ -34,7 +34,7 @@ public class FindAverageServiceImpl implements FindAverageService {
         ExchangeRate privatEUR = service.findFirstByCurrencyDesc("EUR", PRIVAT_NAME);
         ExchangeRate minFinUSD = service.findFirstByCurrencyDesc("USD", MINFIN_NAME);
         ExchangeRate minFinEUR = service.findFirstByCurrencyDesc("EUR", MINFIN_NAME);
-        List<ExchangeRate> ratesUSD = List.of(monoUSD,  privatUSD, minFinUSD);
+        List<ExchangeRate> ratesUSD = List.of(monoUSD, privatUSD, minFinUSD);
         List<ExchangeRate> ratesEUR = List.of(monoEUR, privatEUR, minFinEUR);
         return List.of(findAverage(ratesUSD), findAverage(ratesEUR));
     }
@@ -58,8 +58,10 @@ public class FindAverageServiceImpl implements FindAverageService {
             sumSell = sumSell.add(rate.getRateSell());
         }
         AverageRate averageRate = new AverageRate();
-        averageRate.setRateBuy(sumBuy.divide(BigDecimal.valueOf(rates.size()), 2, RoundingMode.HALF_UP));
-        averageRate.setRateSell(sumSell.divide(BigDecimal.valueOf(rates.size()), 2, RoundingMode.HALF_UP));
+        averageRate.setRateBuy(sumBuy.divide(BigDecimal
+                .valueOf(rates.size()), 2, RoundingMode.HALF_UP));
+        averageRate.setRateSell(sumSell.divide(BigDecimal
+                .valueOf(rates.size()), 2, RoundingMode.HALF_UP));
         averageRate.setCurrencyFrom(rates.get(0).getCurrencyFrom());
         averageRate.setCurrencyTo("UAH");
         return averageRate;

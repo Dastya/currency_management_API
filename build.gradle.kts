@@ -2,6 +2,7 @@ plugins {
     java
     id("org.springframework.boot") version "2.5.6"
     id("io.spring.dependency-management") version "1.1.0"
+    id("checkstyle")
 }
 
 group = "ua.lipenets"
